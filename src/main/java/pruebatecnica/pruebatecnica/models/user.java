@@ -2,7 +2,7 @@ package pruebatecnica.pruebatecnica.models;
 
 import java.util.Set;
 
-import javax.annotation.Generated;
+
 import javax.management.relation.Role;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,13 +12,15 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+
+
+
 
 @Entity
 
-public class user {
+public class User {
     
-    public user() {
+    public User() {
     }
 
     @Id
@@ -45,7 +47,7 @@ public class user {
     private String username;
     private String password;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 }
