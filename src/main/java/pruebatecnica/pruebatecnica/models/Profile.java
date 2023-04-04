@@ -45,8 +45,8 @@ public void setExperience(String experience) {
 public Profile() {
 }
 @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-@JoinColumn(name = "user_id", referencedColumnName = "id")
 private User user;
+@JoinColumn(name = "user_id", referencedColumnName = "id")
 
 @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_courses", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "course_id"))
